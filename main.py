@@ -14,7 +14,7 @@ app = FastAPI()
 load_dotenv()
 
 # Read the variable from the environment (or .env file)
-bot_token = os.getenv('BOT_TOKEN')
+bot_token = os.getenv('6320271103:AAFWo-spI58rPwxmwb_5tKjBQ4J4trtb32k')
 secret_token = os.getenv("SECRET_TOKEN")
 # webhook_url = os.getenv('CYCLIC_URL', 'http://localhost:8181') + "/webhook/"
 
@@ -24,7 +24,7 @@ bot = Bot(token=bot_token)
 # print(webhook_info)
 
 def auth_telegram_token(x_telegram_bot_api_secret_token: str = Header(None)) -> str:
-    # return true # uncomment to disable authentication
+    return true # uncomment to disable authentication
     if x_telegram_bot_api_secret_token != secret_token:
         raise HTTPException(status_code=403, detail="Not authenticated")
     return x_telegram_bot_api_secret_token
